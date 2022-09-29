@@ -16,6 +16,14 @@ function App() {
           <h2>Morty Smith</h2>
           <button>Show more</button>
         </section>
+        <footer>
+          <nav>
+            <a href="#">Nav 1</a>
+            <a href="#">Nav 2</a>
+            <a href="#">Nav 3</a>
+            <a href="#">Nav 4</a>
+          </nav>
+        </footer>
       </main>
     </div>
   );
