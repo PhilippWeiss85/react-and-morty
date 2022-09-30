@@ -1,31 +1,46 @@
 import styled from 'styled-components';
 
-export function Card() {
+export function Card({ id, name, gender, status, species, image }) {
   return (
     <StyledCard>
-      <img alt="Character" src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"></img>
-      <h2>Morty Smith</h2>
-      <button>Show more</button>
+      <img alt="CharacterImage" src={image}></img>
+      <StyledH2>{name}</StyledH2>
+      <StyledButton>Show more</StyledButton>
     </StyledCard>
   );
 }
 
 // stylings below
 const StyledCard = styled.section`
-  border: 1px solid black;
-  width: 15%;
-  height: 15%;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: lightblue;
+  width: 20%;
   padding: 1rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 20px 20px;
 
-  .h2 {
-    text-align: center;
-  }
-
   .img {
     display: flex;
+  }
+`;
+
+const StyledH2 = styled.h2`
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.5rem;
+`;
+
+const StyledButton = styled.button`
+  border-radius: 5px;
+  background-color: white;
+  height: 2rem;
+
+  &:hover {
+    background: hsla(180, 80%, 30%, 0.7);
+    font-size: 1.1rem;
+    transition: 0.1s ease-out;
   }
 `;
