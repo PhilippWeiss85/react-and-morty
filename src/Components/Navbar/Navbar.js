@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export function Navbar() {
   return (
     <StyledNavbar>
-      <StyledNavbarItem href="#">Home/Dashboard</StyledNavbarItem>
+      <StyledNavbarItem href="#">Home</StyledNavbarItem>
       <StyledNavbarItem href="#">Random Character</StyledNavbarItem>
       <StyledNavbarItem href="#">Favorites</StyledNavbarItem>
       <StyledNavbarItem href="#">Profile</StyledNavbarItem>
@@ -31,6 +31,6 @@ const StyledNavbarItem = styled.a`
     background: hsla(100, 50%, 10%, 0.4);
     transform: translateY(-20px);
     border-radius: 10px;
-    transition: 0.2s ease-in-out;
+    transition: 0.15s ease-in;
   }
 `;
