@@ -29,7 +29,6 @@ const StyledCard = styled.section`
 
 const StyledH2 = styled.h2`
   text-align: center;
-  text-decoration: underline;
   font-size: 1.5rem;
 `;
 

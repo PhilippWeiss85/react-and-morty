@@ -4,6 +4,8 @@ import { Navbar } from './Components/Navbar/Navbar';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { Routes, Route, useParams } from 'react-router-dom';
+import { CharacterPage } from './CharacterPage';
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -24,36 +26,50 @@ function App() {
     fetchUrl();
   }, []);
 
-  console.log(cards);
-
   return (
     <div>
-      <Header />
-      <StyledMain>
-        {cards.map((card) => {
-          return (
-            <Card
-              id={card.id}
-              key={card.id}
-              image={card.image}
-              name={card.name}
-              gender={card.gender}
-              status={card.status}
-              species={card.species}
-            />
-          );
-        })}
-      </StyledMain>
-      <footer>
+      <header>
+        <Header />
         <Navbar />
-      </footer>
+      </header>
+      <Routes>
+        <Route
+          path="home"
+          element={
+            <StyledSection>
+              {cards.map((card) => {
+                return (
+                  <Card
+                    id={card.id}
+                    key={card.id}
+                    image={card.image}
+                    name={card.name}
+                    gender={card.gender}
+                    status={card.status}
+                    species={card.species}
+                  />
+                );
+              })}
+            </StyledSection>
+          }
+        />
+        <Route
+          path="characters"
+          element={
+            <StyledSection>
+              <CharacterPage />
+            </StyledSection>
+          }
+        />
+      </Routes>
+      <footer></footer>
     </div>
   );
 }
 
 export default App;
 
-const StyledMain = styled.main`
+const StyledSection = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
