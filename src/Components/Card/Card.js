@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export function Card({ id, name, gender, status, species, image }) {
+export function Card({ id, name, image, toggleFunction, toggleButton }) {
   return (
     <StyledCard>
       <img alt="CharacterImage" src={image}></img>
       <StyledH2>{name}</StyledH2>
-      <StyledButton>Show more</StyledButton>
+      <StyledButton onClick={() => toggleFunction(id)}>
+        {toggleButton === false ? 'Show More' : 'Show Less'}
+      </StyledButton>
     </StyledCard>
   );
 }
@@ -21,6 +23,7 @@ const StyledCard = styled.section`
   justify-content: center;
   flex-direction: column;
   margin: 20px 20px;
+  box-shadow: 10px 4px 10px grey;
 
   .img {
     display: flex;
@@ -29,7 +32,6 @@ const StyledCard = styled.section`
 
 const StyledH2 = styled.h2`
   text-align: center;
-  text-decoration: underline;
   font-size: 1.5rem;
 `;
 
