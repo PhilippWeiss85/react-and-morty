@@ -13,9 +13,6 @@ export function Navbar() {
       <StyledNavbarItem to="/" end>
         Favorites
       </StyledNavbarItem>
-      <StyledNavbarItem to="/" end>
-        Profile
-      </StyledNavbarItem>
     </StyledNavbar>
   );
 }
@@ -30,7 +27,8 @@ const StyledNavbar = styled.nav`
 `;
 
 const StyledNavbarItem = styled(NavLink)`
-  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 20px;
   color: white;
   text-decoration: none;
@@ -40,17 +38,16 @@ const StyledNavbarItem = styled(NavLink)`
 
   &:hover {
     background: hsla(100, 50%, 10%, 0.4);
-    transform: translateY(20px);
+    transform: translateY(10px);
     border-radius: 10px;
     transition: 0.15s ease-in;
   }
 
   &.active {
     background: hsla(100, 50%, 10%, 0.4);
-    transform: translateY(20px);
-    border-radius: 10px;
+    transform: translateY(10px);
     transition: 0.15s ease-in;
     font-weight: bold;
-    text-decoration: underline;
+    border-bottom: 3px solid red;
   }
 `;

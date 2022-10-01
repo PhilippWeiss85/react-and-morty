@@ -8,8 +8,9 @@ export function Header() {
 const StyledHeader = styled.header`
   background-color: lightslategrey;
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 20px 0;
   text-align: center;
   font-size: 2rem;
   color: white;
+  border-bottom: 10px solid black;
 `;
