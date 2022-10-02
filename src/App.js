@@ -6,11 +6,12 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
 import { DetailCharacterPage } from './DetailCharacterPage';
+import { FavoritePage } from './FavoritesPage';
 import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [cards, setCards] = useState([]);
-  const [detailedCards, setDetailedCards] = useState([]);
+  const [detailedCard, setDetailedCard] = useState({});
   const [toggleButton, setToggleButton] = useState(false);
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ function App() {
         const data = await response.json();
         const cardData = data.results;
         setCards(cardData);
-        setDetailedCards(cardData);
+        // setDetailedCards(cardData);
       } catch (error) {
         window.log(error);
       }
@@ -31,9 +32,9 @@ function App() {
   }, []);
 
   function toggleFunction(cardId) {
-    const showMore = cards.filter((card) => cardId === card.id);
+    const showMore = cards.find((card) => cardId === card.id);
     setToggleButton((previousToggle) => previousToggle === !previousToggle);
-    setDetailedCards(showMore);
+    setDetailedCard(showMore);
     navigate(`/details/${cardId}`);
   }
 
@@ -41,6 +42,8 @@ function App() {
     const toggleInfo = cards.filter((card) => card.id === cardId);
     setCards(toggleInfo);
   }
+
+  console.log(detailedCard);
 
   return (
     <div>
@@ -62,7 +65,7 @@ function App() {
                     name={card.name}
                     toggleFunction={toggleFunction}
                     toggleButton={toggleButton}
-                    detailedCard={detailedCards}
+                    detailedCard={detailedCard}
                   />
                 );
               })}
@@ -74,20 +77,24 @@ function App() {
           end
           element={
             <StyledSection>
-              {detailedCards.map((card) => {
-                return (
-                  <DetailCharacterPage
-                    id={card.id}
-                    key={card.id}
-                    image={card.image}
-                    name={card.name}
-                    status={card.status}
-                    species={card.species}
-                    type={card.type}
-                    toggleCardInformation={toggleCardInformation}
-                  />
-                );
-              })}
+              <DetailCharacterPage
+                id={detailedCard.id}
+                key={detailedCard.id}
+                image={detailedCard.image}
+                name={detailedCard.name}
+                status={detailedCard.status}
+                species={detailedCard.species}
+                type={detailedCard.type}
+                toggleCardInformation={toggleCardInformation}
+              />
+            </StyledSection>
+          }
+        />
+        <Route
+          path="favorites"
+          element={
+            <StyledSection>
+              <FavoritePage />
             </StyledSection>
           }
         />

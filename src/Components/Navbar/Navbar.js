@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 export function Navbar() {
   return (
     <StyledNavbar>
-      <StyledNavbarItem to="/home" end>
+      <StyledNavbarItem to="home" end>
         Home
       </StyledNavbarItem>
-      <StyledNavbarItem to="/characters" end>
+      <StyledNavbarItem to="characters" end>
         Random Character
       </StyledNavbarItem>
-      <StyledNavbarItem to="/" end>
+      <StyledNavbarItem to="favorites" end>
         Favorites
       </StyledNavbarItem>
     </StyledNavbar>
